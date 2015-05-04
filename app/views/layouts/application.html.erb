@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Raddit</title>
+  <title>LEYENDA</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<header class="navbar navbar-default" role="navigation">
-    <div class="navbar-inner">
-      <div class="container">
-        <div id="logo" class="navbar-brand"><%= link_to "Raddit", root_path %></div>
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
-        	<% if user_signed_in? -%>
-						<ul class="nav navbar-nav navbar-right">
-							<li><%= link_to 'Submit link', new_link_path %></li>
-							<li><%= link_to 'Account', edit_user_registration_path %></li>
-							<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-						</ul>
-					<% else -%>
-						<ul class="nav navbar-nav pull-right">
-							<li><%= link_to 'Sign up', new_user_registration_path %></li>
-							<li><%= link_to 'Sign in', new_user_session_path %></li>
-						</ul>
-					<% end -%>
-        </nav>
-      </div>
-    </div>
-  </header>
+	    <div class="navbar-inner">
+	      <div class="container">
+	      	<a href="/">
+		      	<div class="leyenda-logo" id="pill"></div>
+	      	</a>
+	        
+	        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+	        	<% if user_signed_in? -%>
+							<ul class="nav navbar-nav navbar-right menu">
+								<li><img src=" /assets/enviar.png" /><%= link_to 'Enviar noticia', new_link_path %></li>
+								<li><img src=" /assets/cuenta.png" /><%= link_to 'Cuenta', edit_user_registration_path %></li>
+								<li><img src=" /assets/salir.png" /><%= link_to 'Salir', destroy_user_session_path, :method => :delete %></li>
+							</ul>
+						<% else -%>
+							<ul class="nav navbar-nav pull-right menu">
+								<li><img src=" /assets/invitacion.png" /><%= link_to 'Registrate', new_user_registration_path %></li>
+								<li><img src=" /assets/entrar.png" class="iconos"/><%= link_to 'Entra', new_user_session_path %></li>
+							</ul>
+						<% end -%>
+	        </nav>
+	      </div>
+
+		<!-- <div class="navbar-inner submenu"> 
+	    	<div id="subnavbar">
+				<ul id="subnav">
+
+				<li><a href="URL_de_la_pagina" title="Inicio">Mock-ups<img src="/assets/1.png" /></a>
+				</li>
+				<li><a href="URL_de_la_pagina" title="pestaña1">UI / UX<img src="/assets/2.png" /></a>
+				</li>
+				<li><a href=" URL_de_la_pagina " title="pestaña2">Iconos<img src=" /assets/3.png" /></a>
+				</li>
+				<li><a href=" URL_de_la_pagina " title="pestaña3">Codigo<img src=" /assets/4.png" /></a>
+				</li>
+				<li><a href=" URL_de_la_pagina " title="pestaña4">Vectorial<img src=" /assets/5.png " /></a>
+				</li>
+				<li><a href=" URL_de_la_pagina " title="pestaña5">PSD<img src="/assets/6.png" /></a>
+				</li>
+				<li><a href=" URL_de_la_pagina " title="pestaña5">Stock<img src="/assets/7.png" /></a>
+				</li>
+				<li><a href=" URL_de_la_pagina " title="pestaña5">Otros<img src="/assets/8.png" /></a>
+				</li>								
+				</ul>
+			</div>
+	    </div> -->
+    </header>
+
+		<div class="modo">
+		    <body id="body">
+		    	<span class="modolectura"> Modo Lectura </span></br>
+			    <img src=" /assets/dia.png" /><input type="button" class="changeBg modoboton" onclick="day();" value="Día" /></br>
+			    <img src=" /assets/noche.png" /><input type="button" class="changeBg modoboton" onclick="night();" value="Noche" /></br>
+			    <img src=" /assets/blanco.png" /><input type="button" class="changeBg modoboton" onclick="doreset();" value="Blanco" /></br>
+			</body>
+		</div>
 
 	<div id="main_content" class="container">
 		<% flash.each do |name, msg| %>
@@ -36,8 +72,16 @@
 
 			<div id="content" class="col-md-9 center-block">
 				<%= yield %>
+		
 			</div>
 		</div>
 	</div>
+
+	    <div class="navbar-inner footer"> 
+
+	    
+    	
+ 	 </div>
+ 	 <script src="js/retina.js"></script>
 </body>
 </html>

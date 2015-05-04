@@ -16,3 +16,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'pg'
 gem 'acts-as-taggable-on'
+gem 'link_thumbnailer'
+gem 'better_errors'
+gem 'puma'
+gem 'rails_12factor'
